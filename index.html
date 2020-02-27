@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html ⚡>
+<head>
+<meta charset="utf-8">
+<link rel="canonical" href="index.html" />
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+<style amp-custom>
+	:root {
+		--color-primary: #0f4c81; /* pantone 2020 */
+		--color-secondary: #ffffff;
+		--color-default: #ffffff;
+		--color-selected: #000000;
+		--space-1: .5rem;  /* 8px */
+		--space-2: 1rem;   /* 16px */
+		--space-4: 2rem;   /* 32px */
+		--space-8: 4rem;   /* 64px */
+		--space-16: 8rem;   /* 128px */
+		--space-32: 16rem;   /* 256px */
+	}
+	amp-selector[role=tablist].tabs-with-flex {
+		display: flex;
+		flex-wrap: wrap;
+		background-color: var(--color-primary);
+	}
+	amp-selector[role=tablist].tabs-with-flex [role=tab] {
+		flex-grow: 1;
+		/* custom styling, feel free to change */
+		text-align: center;
+		padding: var(--space-1);
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+		font-weight: bold;
+		color: var(--color-default);
+		background-color: var(--color-primary);
+	}
+	amp-selector[role=tablist].tabs-with-flex [role=tab][selected] {
+		outline: none;
+		/* custom styling, feel free to change */
+		/*border-bottom: 2px solid var(--color-primary);*/
+		border-top-left-radius: 12px;
+		border-top-right-radius: 12px;
+		font-weight: bold;
+		color: var(--color-selected);
+		background-color: var(--color-secondary);
+	}
+	amp-selector[role=tablist].tabs-with-flex [role=tabpanel] {
+		display: none;
+		width: 100%;
+		order: 1; /* must be greater than the order of the tab buttons to flex to the next line */
+		/* custom styling, feel free to change */
+		padding: var(--space-4);
+		background-color: var(--color-secondary);
+	}
+	amp-selector[role=tablist].tabs-with-flex [role=tab][selected] + [role=tabpanel] {
+		display: block;
+	}
+	amp-selector.tabpanels [role=tabpanel] {
+		display: none;
+		/* custom styling, feel free to change */
+		padding: var(--space-4);
+	}
+	amp-selector.tabpanels [role=tabpanel][selected] {
+		outline: none;
+		display: block;
+	}
+	body {
+		font-family: "Crimson Text";
+	}
+	header {
+		text-align: center;
+		padding-top: 76px;
+		padding-bottom: 76px;
+		font-size: 18px;
+		color: #ffffff;
+		background-color: var(--color-primary);
+	}
+	article {
+		font-size: 18px;
+	}
+	footer {
+		text-align: center;
+		padding: var(--space-4);
+		background-color: var(--color-primary);
+		color: #ffffff;
+	}
+	footer a:link, footer a:visited, footer a:active {
+		color: #999999;
+		text-decoration: underline;
+	}
+	footer a:hover {
+		color: #ffffff;
+		text-decoration: underline;
+	}
+	footer div {
+		display: block;
+	}
+	.center {
+		text-align: center;
+	}
+	.row .row {
+		margin: 0 -1.5em;
+	}
+	.col {
+		padding: 0 1.5em;
+	}
+	.row:after {
+	    content: "";
+	    clear: both;
+	    display: table;
+	}	
+	@media only screen and (min-width: 34em) {
+		amp-selector[role=tablist].tabs-with-flex [role=tabpanel] {
+			display: none;
+			width: 100%;
+			order: 1; /* must be greater than the order of the tab buttons to flex to the next line */
+			/* custom styling, feel free to change */
+			padding: var(--space-4);
+		}
+		footer div {
+			display: block;
+		}
+		.col {
+	    	float: left;
+	    	width: 100%;
+	    	box-sizing: border-box;
+	    }		
+	}
+	@media only screen and (min-width: 54em) {
+		amp-selector[role=tablist].tabs-with-flex [role=tabpanel] {
+			display: none;
+			width: 100%;
+			order: 1; /* must be greater than the order of the tab buttons to flex to the next line */
+			/* custom styling, feel free to change */
+			padding: var(--space-4) var(--space-8);
+		}
+		footer div {
+			display: inline;
+		}
+		.col {
+	    	float: left;
+	    	width: 50%;
+	    	box-sizing: border-box;
+	    }		
+	}
+	@media only screen and (min-width: 76em) {
+		amp-selector[role=tablist].tabs-with-flex [role=tabpanel] {
+			display: none;
+			width: 100%;
+			order: 1; /* must be greater than the order of the tab buttons to flex to the next line */
+			/* custom styling, feel free to change */
+			padding: var(--space-4) var(--space-16);
+		}
+		footer div {
+			display: inline;
+		}
+		.col {
+	    	float: left;
+	    	width: 50%;
+	    	box-sizing: border-box;
+	    }		
+	}
+</style>
+<script async src="https://cdn.ampproject.org/v0.js"></script>
+<script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Inconsolata|Montserrat:400,500,600,700|Crimson+Text:400,600" rel="stylesheet">
+<title>Palawan Dental Clinic</title>
+</head>
+<body>
+
+<nav>
+	<div></div>
+</nav>
+
+<header>
+	<h1 style="margin-bottom:0">Palawan Dental Clinic</h1>
+	<div>Implants, Orthodontics, Whitening, General Dentistry</div>
+</header>
+
+<article>
+	<amp-selector class="tabs-with-flex" role="tablist">
+		<div id="tab1" role="tab" aria-controls="tabpanel1" option selected>
+			About Us
+		</div>
+		<div id="tabpanel1" role="tabpanel" aria-labelledby="tab1">
+			<h2>About Us</h2>
+			<p style="font-style:italic;font-weight:bold;padding:0 30px;">"Nothing beats a dental practice that lets the entire family participate in quality dental care and great customer service. If you need a dentist for you and your children or a convenient home for all of your family's dental health, we’ve got the right environment for you."</p>
+			<div style="float:left;padding-right:20px">
+				<amp-img src="images/doctor-grace-socrates.jpg" layout="fixed" width="174" height="232" title="Dr. Grace Socrates – Llagas" alt="Dr. Grace Socrates – Llagas"></amp-img>
+			</div>
+			<p>Established by Dr. Grace Socrates – Llagas in 1999 , we believe that all families have the right to receive quality dental care. We welcome the entire family, from children as young as 1 year old, and also treat adults in our clinic.</p>
+			<p>Dr. Grace Socrates –Llagas received her dental degree in 1998 from the University of the East, in Manila. She then underwent a full time one year hospital internship program for PEDIATRIC DENTISTRY at the Philippine Children’s Medical Center before taking her Preceptorship Training in ADVANCED ORTHODONTICS WITH BASIC TMJ at Sulo Hotel, in Quezon City. From the beginning of her professional career, she has devoted herself to the concept of “Gentle Dentistry”, addressing patient anxiety with understanding and reassurance. On year 2009, Dr. Socrates-Llagas underwent training on BASIC IMPLANTOLOGY at the National University of Singapore. And to pursue professional excellence through continuing education, she also underwent ADVANCED AND CLINICAL IMPLANTOLOGY course in the Philippines under her mentors, Dr. Paul Achacoso (well known implant dentist not only in the Philippines and Germany but worldwide) and Dr. Lizette Rivas who is now developing and improving studies in Platelet Rich Fibrin (PRF) needed in faster growth of bones and healing of wounds, here in the Philippines. In addition, Dr. Socrates-Llagas is also knowledgeable and experienced in ENDODONTICS and DENTAL SURGERY.</p>
+			<p>Dr. Socrates-Llagas is a fellow member of the Philippine Dental Association, the Palawan Dental Association and the Philippine Association of Implant Dentistry.</p>
+		</div>
+		<div id="tab2" role="tab" aria-controls="tabpanel2" option>
+			Our Services
+		</div>
+		<div id="tabpanel2" role="tabpanel" aria-labelledby="tab2">
+			<h2>Our Services</h2>
+			<p>The Palawan Dental Clinic provides basic and specialized dental services including:</p>
+	        <div class="row">
+	        	<div class="col">
+			        <ul>
+			            <li>Dentistry</li>
+			            <li>Cosmetic Dentistry</li>
+			            <li>Dentures</li>
+			        </ul>
+			    </div>
+	        	<div class="col">
+					<ul>
+						<li>Endodontic Services</li>
+						<li>Family Dentistry</li>
+						<li>Dental Implants</li>
+					</ul>
+			    </div>
+	        	<div class="col">
+					<ul>
+						<li>Orthodontic Services</li>
+						<li>Children's Dentistry</li>
+						<li>Periodontic Services</li>
+					</ul>
+			    </div>
+	        	<div class="col">
+					<ul>
+						<li>Dental Restorations</li>
+						<li>Oral Surgery</li>
+						<li>Emergency Dental Services</li>
+					</ul>
+			    </div>
+			</div>
+		</div>
+		<div id="tab3" role="tab" aria-controls="tabpanel3" option>
+			Accreditations
+		</div>
+		<div id="tabpanel3" role="tabpanel" aria-labelledby="tab3">
+			<h2>Accreditations</h2>
+			<div class="row">
+				<div class="col center">
+				    <amp-img src="images/APO.jpg" width="234" height="234" title="APO" alt="APO"></amp-img>
+				    <p><strong>APO</strong> - Association of Philippine Orthodontists (Philippines)</p>
+				</div>
+				<div class="col center">
+				    <amp-img src="images/ESP.jpg" width="234" height="234" title="ESP" alt="ESP"></amp-img>
+				    <p><strong>ESP</strong> - Endodontic Society of the Philippines (Philippines)</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col center">
+				    <amp-img src="images/NADTI.jpg" width="234" height="234" title="NADTI" alt="NADTI"></amp-img>
+				    <p><strong>NADTI</strong> - National Association of Dental Traders (Philippines)</p>
+				</div>
+				<div class="col center">
+				    <amp-img src="images/PAFJO-TMJ.jpg" width="234" height="234" title="PAFJO-TMJ" alt="PAFJO-TMJ"></amp-img>
+				    <p><strong>PAFJO-TMJ</strong> - Philippine Association of Functional Jaw Orthopedics & TMJ (Philippines)</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col center">
+				    <amp-img src="images/PAGD.jpg" width="234" height="234" title="PAGD" alt="PAGD"></amp-img>
+				    <p><strong>PAGD</strong> - Philippine Academy of General Dentistry (Philippines)</p>
+				</div>
+				<div class="col center">
+				    <amp-img src="images/PAID.jpg" width="234" height="234" title="PAID" alt="PAID"></amp-img>
+				    <p><strong>PAID</strong> - Philippine Academy of Implant Dentistry (Philippines)</p>
+				</div>
+			</div>
+		</div>
+		<div id="tab4" role="tab" aria-controls="tabpanel4" option>
+			Contact Us
+		</div>
+		<div id="tabpanel4" role="tabpanel" aria-labelledby="tab4">
+			<h2>Contact Us</h2>
+			<h3>Leave Us a Message</h3>
+			<ul>
+				<li>Email: <a href="mailto:palawandentalclinic@yahoo.com">palawandentalclinic@yahoo.com</a></li>
+				<li>Mobile: <a href="tel:+63.917.5110909">+63.917.5110909</a> (Globe) / <a href="tel:+63.907.314723">+63.907.314723</a> (Smart)</li>
+				<li>Facebook: <a href="https://www.facebook.com/Palawan.Dental.Clinic/" rel="external nofollow">https://www.facebook.com/Palawan.Dental.Clinic/</a></li>
+			</ul>
+			<h3>Location Map</h3>
+			<amp-iframe width="600" height="450"
+			    sandbox="allow-scripts allow-same-origin"
+			    layout="responsive"
+			    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB9eZyVeb59NhGtZNz00YDTHNWIuMCBohM
+    &q=Palawan+Dental+Clinic">
+			    <amp-img placeholder layout="fill" src="/non-exist">
+			    	<div fallback>Loading...</div>
+		    	</amp-img>
+			</amp-iframe>
+			<h3>The Palawan Dental Clinic (Socrates Dental Clinic)</h3>
+			<ul>
+				<li>Conveniently located at the ground floor of Eastville City Walk Building, in front of the Puerto Princesa City Coliseum, Brgy. San Pedro.</li>
+				<li>Open from Monday to Saturday, 9am-12nn and 2pm-6pm</li>
+				<li>G/F Eastville City Walk Building. In front of Puerto Princesa City Coliseum, Brgy. San Pedro</li>
+			</ul>
+		</div>
+	</amp-selector>
+</article>
+
+<footer>
+	<div>Copyright &copy; 2020 <a href="https://www.palawandentalclinic.com/">Palawan Dental Clinic</a>.</div>
+	<div>Maintained by <a href="https://www.donjon.com.ph/" title="DONJON Philippines" rel="external">Donjon Information Technology Services</a>.</div>
+	<div>All rights reserved.</div>
+	</div>
+</footer>
+
+</body>
+</html>
